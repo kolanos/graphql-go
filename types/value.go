@@ -31,11 +31,11 @@ type PrimitiveValue struct {
 func (val *PrimitiveValue) Deserialize(vars map[string]interface{}) interface{} {
 	switch val.Type {
 	case scanner.Int:
-		value, err := strconv.ParseInt(val.Text, 10, 32)
+		value, err := strconv.ParseInt(val.Text, 10, 64)
 		if err != nil {
 			panic(err)
 		}
-		return int32(value)
+		return int64(value)
 
 	case scanner.Float:
 		value, err := strconv.ParseFloat(val.Text, 64)
